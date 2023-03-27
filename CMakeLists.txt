@@ -17,6 +17,11 @@ pkg_check_modules(PostgreSQL REQUIRED IMPORTED_TARGET libpq)
 include(cmake/config.cmake)
 add_subdirectory(src)
 
+include(CTest)
+if(BUILD_TESTING)
+    add_subdirectory(test)
+endif()
+
 # Create and install the version file
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("libpqxx-config-version.cmake"
