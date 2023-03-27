@@ -15,11 +15,19 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(PostgreSQL REQUIRED IMPORTED_TARGET libpq)
 
 include(cmake/config.cmake)
+add_subdirectory(include)
 add_subdirectory(src)
 
 include(CTest)
 if(BUILD_TESTING)
     add_subdirectory(test)
+endif()
+
+find_program(HAVE_DOXYGEN doxygen)
+if(HAVE_DOXYGEN)
+    add_subdirectory(doc)
+else()
+    message(WARNING, "Doxygen not available, skipping documentation.")
 endif()
 
 # Create and install the version file

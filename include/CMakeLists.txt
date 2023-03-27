@@ -62,7 +62,7 @@ install(
 
 install(
     DIRECTORY pqxx/doc/
-    DESTINATION ${CMAKE_INSTALL_DOCDIR}
+    DESTINATION ${CMAKE_INSTALL_DOCDIR}/pqxx
     FILES_MATCHING
     PATTERN *.md
 )
