@@ -58,6 +58,18 @@ export(
     FILE ${CMAKE_CURRENT_BINARY_DIR}/libpqxx-targets.cmake
 )
 
+# Configure and install pkg-config file
+set(prefix ${CMAKE_INSTALL_PREFIX})
+set(exec_prefix \${prefix})
+set(libdir "\${prefix}/${CMAKE_INSTALL_LIBDIR}")
+set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
+set(VERSION ${PROJECT_VERSION})
+configure_file(${PROJECT_SOURCE_DIR}/libpqxx.pc.in ${PROJECT_BINARY_DIR}/libpqxx.pc)
+install(
+    FILES ${PROJECT_BINARY_DIR}/libpqxx.pc
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
+)
+
 # Package generation
 set(CPACK_GENERATOR TGZ)
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
