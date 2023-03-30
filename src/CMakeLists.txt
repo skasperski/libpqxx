@@ -1,5 +1,5 @@
 file(GLOB CXX_SOURCES *.cxx)
-add_library(pqxx SHARED ${CXX_SOURCES})
+add_library(pqxx ${CXX_SOURCES})
 
 target_include_directories(pqxx
     PUBLIC
