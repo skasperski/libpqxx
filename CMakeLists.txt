@@ -59,7 +59,7 @@ export(
 )
 
 # Package generation
-#set(CPACK_GENERATOR TGZ)
-#set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
-#include(CPack)
+set(CPACK_GENERATOR TGZ)
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+include(CPack)
 
